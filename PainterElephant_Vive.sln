@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PainterElephant_Vive", "PainterElephant_Vive.csproj", "{549D2020-1267-A559-1143-8B9D9D6DADD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PainterElephant_Vive.Editor", "PainterElephant_Vive.Editor.csproj", "{60006492-B0A1-BA48-3146-6F9E8E829014}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{549D2020-1267-A559-1143-8B9D9D6DADD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{549D2020-1267-A559-1143-8B9D9D6DADD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{549D2020-1267-A559-1143-8B9D9D6DADD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{549D2020-1267-A559-1143-8B9D9D6DADD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60006492-B0A1-BA48-3146-6F9E8E829014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60006492-B0A1-BA48-3146-6F9E8E829014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60006492-B0A1-BA48-3146-6F9E8E829014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60006492-B0A1-BA48-3146-6F9E8E829014}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
