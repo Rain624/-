@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: ea09e534222a494499f54e6740614983
+  productGUID: f162ff3d0ad9c0640b10c6b35b7f9452
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -269,7 +269,7 @@ PlayerSettings:
       m_Icon: {fileID: 0}
       m_Width: 1
       m_Height: 1
-      m_Kind: 39176
+      m_Kind: 39756
   m_BuildTargetBatching:
   - m_BuildTarget: Standalone
     m_StaticBatching: 1
@@ -305,6 +305,7 @@ PlayerSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 1
     m_Devices:
+    - Oculus
     - OpenVR
   - m_BuildTarget: Tizen
     m_Enabled: 0
@@ -624,7 +625,8 @@ PlayerSettings:
   webGLUseEmbeddedResources: 0
   webGLUseWasm: 0
   webGLCompressionFormat: 1
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: VIU_PLUGIN;VIU_STEAMVR;VIU_STEAMVR_1_2_0_OR_NEWER;VIU_STEAMVR_1_2_1_OR_NEWER;VIU_STEAMVR_1_2_2_OR_NEWER;VIU_STEAMVR_1_2_3_OR_NEWER
   platformArchitecture: {}
   scriptingBackend:
     Standalone: 0
@@ -718,7 +720,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: 28b22036-e955-4d81-a8b0-874fe417280c
-  projectName: PainterElephant_Vive
+  projectName: 
   organizationId: rain624
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

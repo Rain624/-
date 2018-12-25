@@ -7,12 +7,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Es.InkPainter;
+using System;
 
 
-    public class NozzlePainter : MonoBehaviour
+
+public class NozzlePainter : MonoBehaviour
     {
-
-        public Transform Nozzle;
+    public Action<Color> ColorEventHandle;
+    public Transform Nozzle;
         [System.Serializable]
         private enum UseMethodType
         {
@@ -35,9 +37,6 @@ using Es.InkPainter;
         /// 颜色变化的快慢，数字越大变化越慢
         /// </summary>
         private  readonly float duration = 10.0f;
-        public Transform cube;
-        public Transform elephant;
-        public TrackerControl trackerControl;
         [Range(0,1)]
         public float a;
         private void Awake()
@@ -55,9 +54,10 @@ using Es.InkPainter;
         {
             bool success = true;
             RaycastHit hitInfo;
-            if (Physics.Raycast(Nozzle.position, Nozzle.TransformDirection(Vector3.forward), out hitInfo, 100))
+        Debug.DrawRay(Nozzle.position, Nozzle.TransformDirection(Vector3.up), Color.white);
+
+        if (Physics.Raycast(Nozzle.position, Nozzle.TransformDirection(Vector3.up), out hitInfo, 100))
             {
-                Debug.DrawRay(Nozzle.position, Nozzle.TransformDirection(Vector3.forward),Color.white);
             ColorChange(hitInfo.transform);
                 var paintObject = hitInfo.transform.GetComponent<InkCanvas>();
                 if (paintObject != null)
@@ -109,24 +109,28 @@ using Es.InkPainter;
         {
             Color color = colorPail.GetComponent<MeshRenderer>().material.color;
             brush.Color = color;
+            if (ColorEventHandle != null)
+            {
+                ColorEventHandle(color);
+            }
         }
      
 
     }
-    /// <summary>
-    /// 颜色擦除
-    /// </summary>
-    private void ColorErase()
-        {
-            for(int index=0;index<100;index++)
-            {
-                Vector3 pos = new Vector3(cube.position.x, cube.position.y + index * a, cube.position.z - index
-                    * a);
-                var paintObject = elephant.GetComponent<InkCanvas>();
-                paintObject.EraseNearestTriangleSurface(brush, pos);
-            }
+    ///// <summary>
+    ///// 颜色擦除
+    ///// </summary>
+    //private void ColorErase()
+    //    {
+    //        for(int index=0;index<100;index++)
+    //        {
+    //            Vector3 pos = new Vector3(cube.position.x, cube.position.y + index * a, cube.position.z - index
+    //                * a);
+    //            var paintObject = elephant.GetComponent<InkCanvas>();
+    //            paintObject.EraseNearestTriangleSurface(brush, pos);
+    //        }
            
-        }
+    //    }
         private void Reset()
         {
             foreach (var canvas in FindObjectsOfType<InkCanvas>())

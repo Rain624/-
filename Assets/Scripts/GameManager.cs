@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour,ISingleton
         public AnimatorControl animatorControl;
         public ElephantControl elephantControl;
         public NozzlePainter nozzlePainter;
-    public TrackerControl trackerControl;
+        public TrackerControl trackerControl;
+    public UIControl uIControl;
     private QdisaStateMachine elephantMachine;
     private QdisaState idleState;
     private QdisaState paintState;
@@ -122,6 +123,8 @@ public class GameManager : MonoBehaviour,ISingleton
 
               //喷枪运行
               trackerControl.OnClick += nozzlePainter.Spary;
+              nozzlePainter.ColorEventHandle += uIControl.ChangeBorderColor;
+              
             //添加大象的运动
               elephantControl.OnDisplay += SetIs2Shake;
         };
@@ -136,6 +139,7 @@ public class GameManager : MonoBehaviour,ISingleton
               Is2Paint = false;
               //喷枪结束
               trackerControl.OnClick -= nozzlePainter.Spary;
+              nozzlePainter.ColorEventHandle -= uIControl.ChangeBorderColor;
               //取消大象的运动
               elephantControl.OnDisplay -= SetIs2Shake;
           };
