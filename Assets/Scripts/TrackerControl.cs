@@ -31,6 +31,13 @@ using HTC.UnityPlugin.Vive;
             if (OnClick != null)
                 OnClick();
         }
+        if (ViveInput.GetPressEx(HandRole.LeftHand, ControllerButton.Trigger))
+        {
+            Debug.Log("Trigger被按下");
+
+            if (OnClick != null)
+                OnClick();
+        }
         //device = SteamVR_Controller.Input((int)trackedObject.index);
         //if (device.GetPress(SteamVR_Controller.ButtonMask.Trigger)||Input.GetKey(KeyCode.Space))
         //{

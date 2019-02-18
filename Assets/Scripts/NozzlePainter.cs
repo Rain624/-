@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Es.InkPainter;
 using System;
+using UnityEngine.UI;
 
 
 
@@ -37,10 +38,10 @@ public class NozzlePainter : MonoBehaviour
         /// 颜色变化的快慢，数字越大变化越慢
         /// </summary>
         private  readonly float duration = 10.0f;
-        [Range(0,1)]
-        public float a;
+
         private void Awake()
         {
+        
         }
         private void Update()
         {
@@ -50,14 +51,16 @@ public class NozzlePainter : MonoBehaviour
                 Reset();
             }
         }
+   
         public void Spary()
         {
             bool success = true;
             RaycastHit hitInfo;
-        Debug.DrawRay(Nozzle.position, Nozzle.TransformDirection(Vector3.up), Color.white);
-
         if (Physics.Raycast(Nozzle.position, Nozzle.TransformDirection(Vector3.up), out hitInfo, 100))
             {
+
+
+            //AimPoint(hitInfo.point);
             ColorChange(hitInfo.transform);
                 var paintObject = hitInfo.transform.GetComponent<InkCanvas>();
                 if (paintObject != null)
@@ -107,7 +110,7 @@ public class NozzlePainter : MonoBehaviour
     {
         if (colorPail.gameObject.layer ==9)
         {
-            Color color = colorPail.GetComponent<MeshRenderer>().material.color;
+            Color color = colorPail.GetComponent<Image>().material.color;
             brush.Color = color;
             if (ColorEventHandle != null)
             {
